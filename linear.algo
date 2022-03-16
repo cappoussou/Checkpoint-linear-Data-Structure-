@@ -1,0 +1,133 @@
+ALGORITHM 1
+
+ set1: ARRAY_OF INTEGER := [3, 1, 7, 9];
+ set2: ARRAY_OF INTEGER := [2, 4, 1, 9, 3];
+ sum: INTEGER := 0;
+ j:INTEGER;
+ i: INTEGER;
+ bool:boolean
+
+BEGIN
+
+FOR i FROM 0 TO Set1.length-1 DO
+ bool:=false
+  FOR j FROM 0 TO set2.length-1 DO
+    IF (set1[i]=set2[j) THEN
+ bool:=true
+ break
+    END IF
+  END FOR
+IF (bool=false) THEN
+ sum:=sum+set1[i]
+END IF
+
+
+FOR i FROM 0 TO Set2.length-1 DO
+ bool:=false
+  FOR j FROM 0 TO set1.length-1 DO
+     IF (set2[i]=set1[j) THEN
+ bool:=true
+ break
+     END IF
+  END FOR
+    IF (bool=false) THEN
+ sum:=sum+set2[i]
+    END IF
+ Write(Sum) 
+END
+
+
+
+
+ALGORITHM 2
+
+VAR 
+ set1: ARRAY_OF INTEGER := [3, 1, 7, 9];
+ set2: ARRAY_OF INTEGER := [2, 4, 1, 9, 3];
+ sum: INTEGER := 0;
+ j:INTEGER;
+ i: INTEGER;
+
+BEGIN
+    FOR i FROM 0 TO set1.length-1 DO
+        FOR i FROM 0 TO set2.length-1 DO
+            IF (set1[i]=set2[j]) THEN
+                sum:=sum+(set1[i]*2)
+            END_IF
+        END_FOR
+    END_FOR
+END
+
+
+
+ALGORITHM algorithm_name
+VAR
+    set1:ARRAY-OF INTEGER :=[3,1,7,9];
+    set2: ARRAY-OF INTEGER := [2,4,1,9,3]
+    k,i,j,sum:=integer:=0
+    h : HASH-TABLE<INTEGER,INTEGER>
+
+BEGIN
+   
+FOR i FROM 1 TO set1.length  DO
+ h.insert(set1[i],1)
+END_FOR
+
+
+
+FOR j FROM 1 TO set2.length  DO
+
+    IF (h.lookup(set2[j]=true))THEN
+        h.insert(set2[j],2)
+        else 
+        h.insert(set2[j],1)
+    END_IF
+
+
+END_FOR
+
+FOR k FROM 1 TO set1.length DO
+   if(h.get(set1[k])=2)THEN
+   sum:=sum+set1[i]*2
+   end_if
+END_FOR
+ write(sum)
+
+END
+
+
+
+
+ALGORITHM HashDistinct
+VAR
+    A : ARRAY_OF INTEGER[] := [1,3,4,5]
+    B : ARRAY_OF INTEGER[] := [3,7,8,1]
+    h : HASH_TABLE<INTEGER,INTEGER>
+    Sum : INTEGER := 0
+BEGIN
+    FOR i FROM 1 TO A.length STEP 1  DO
+        h.insert(A[i],1)
+    END_FOR
+
+    FOR i FROM 1 TO B.length STEP 1  DO
+        IF (h.lookup(B[i]) = true) THEN
+            h.insert(B[i],2)
+
+        ELSE
+            h.insert(B[i],1)
+        END_IF
+    END_FOR
+
+    FOR i FROM 1 TO A.length STEP 1  DO
+        IF (h.get(A[i]) = 1) THEN
+            Sum = Sum + A[i]
+        END_IF
+    END_FOR
+    FOR i FROM 1 TO B.length STEP 1  DO
+        IF (h.get(B[i]) = 1) THEN
+            Sum = Sum + B[i]
+        END_IF
+    END_FOR
+ 
+ Write (sum)
+END
